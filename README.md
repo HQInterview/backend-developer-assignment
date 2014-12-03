@@ -5,7 +5,8 @@ This document contains description and requirements for Round #1 of interview fo
 
 ## Goal
 
-Verify applicant's ability to work with 3rd party libraries. Verify that applicant is able to write clean and testable code.
+1. Verify applicant's ability to work with 3rd party libraries. Verify that applicant is able to write clean and testable code.
+2. Check how clean code the applicant is able to create.
 
 ## Requirements
 
@@ -55,3 +56,12 @@ Use appropriate form validations.
 * Use only Paypal and Braintree Node.js libraries, not any other 3rd party libraries.
 * Cover code with unit tests.
 * The code needs to work after we pull it and try it (no bugs) and should process the payments.
+
+## Quality requirements
+
+Similarly as during any other code review in our team, we'll be checking the following:
+
+* code quality
+* usage of the configuration files
+* usage of the unit tests
+* naming convention
