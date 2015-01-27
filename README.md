@@ -36,11 +36,7 @@ Use appropriate form validations.
 
 3) Save order data + response from payment gateway to database table.
 
-4) Fork this library on GitHub, push your solution and create a pull request.
-
-## Bonus question
-
-* How would you handle security for saving credit cards?
+4) Create a public repository on Github and push the solution there. Send us the link to the repository.
 
 ## Specification
 
@@ -65,3 +61,8 @@ Similarly as during any other code review in our team, we'll be checking the fol
 * usage of the configuration files
 * usage of the unit tests
 * naming convention
+
+## Bonus question
+
+* How would you handle security for saving credit cards?
+
