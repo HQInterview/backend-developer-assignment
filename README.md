@@ -15,8 +15,7 @@ This document contains description and requirements for Round #1 of interview fo
 * [Paypal REST API github](https://github.com/paypal/rest-api-sdk-nodejs)
 * [Paypal REST API docs](https://developer.paypal.com/docs/)
 * [Braintree payments github](https://github.com/braintree/braintree_node)
-* [Braintree payments docs](https://www.braintreepayments.com/docs/node/
-Library should be designed to easily add another additional payment gateways.
+* [Braintree payments docs](https://www.braintreepayments.com/docs/node/)
 
 2) Create a simple form for making payment. Form should have this fields:
 
