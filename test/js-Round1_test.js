@@ -22,7 +22,7 @@ var js_Round1 = require('../lib/js-Round1.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
+exports['braintree'] = {
   setUp: function(done) {
     // setup here
     done();
@@ -30,7 +30,26 @@ exports['awesome'] = {
   'no args': function(test) {
     test.expect(1);
     // tests here
-    test.equal(js_Round1.awesome(), 'awesome', 'should be awesome.');
+    test.throws(
+        function() {js_Round1.braintree()},
+        Error,
+        'Braintree should fail.');
+    test.done();
+  },
+};
+
+exports['paypal'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    test.throws(
+        function() {js_Round1.paypal()},
+        Error,
+        'Paypal should fail.');
     test.done();
   },
 };
