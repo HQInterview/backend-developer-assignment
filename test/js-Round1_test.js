@@ -31,7 +31,7 @@ exports['braintree'] = {
     test.expect(1);
     // tests here
     test.throws(
-        function() {js_Round1.braintree()},
+        function() {js_Round1.braintree();},
         Error,
         'Braintree should fail.');
     test.done();
@@ -47,7 +47,7 @@ exports['paypal'] = {
     test.expect(1);
     // tests here
     test.throws(
-        function() {js_Round1.paypal()},
+        function() {js_Round1.paypal();},
         Error,
         'Paypal should fail.');
     test.done();
