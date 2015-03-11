@@ -38,6 +38,21 @@ exports['braintree'] = {
   },
 };
 
+exports['retreive_token'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    test.throws(
+        function() {js_Round1.paypal();},
+        Error,
+        'Paypal should fail.');
+    test.done();
+  },
+};
 exports['paypal'] = {
   setUp: function(done) {
     // setup here
@@ -50,6 +65,22 @@ exports['paypal'] = {
         function() {js_Round1.paypal();},
         Error,
         'Paypal should fail.');
+    test.done();
+  },
+};
+
+exports['create_listener'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    //
+    test.doesNotThrow(function() {js_Round1.create_listener();},
+        Error,
+        'Starting the Server should not throw.');
     test.done();
   },
 };

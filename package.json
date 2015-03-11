@@ -2,7 +2,7 @@
   "name": "js-Round1",
   "description": "Paypal/Braintree payment processing",
   "version": "0.0.1",
-  "homepage": "https://github.com/HQInterview/Nodejs-Round1",
+  "homepage": "https://github.com/bowerman0/Nodejs-Round1",
   "author": {
     "name": "Michael Bowerman",
     "email": "michael.bowerman@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HQInterview/Nodejs-Round1.git"
+    "url": "https://github.com/bowerman0/Nodejs-Round1.git"
   },
   "bugs": {
-    "url": "https://github.com/HQInterview/Nodejs-Round1/issues"
+    "url": "https://github.com/bowerman0/Nodejs-Round1/issues"
   },
   "licenses": [
     {
       "type": "GPL",
-      "url": "https://github.com/HQInterview/Nodejs-Round1/blob/master/LICENSE-GPL"
+      "url": "https://github.com/bowerman0/Nodejs-Round1/blob/master/LICENSE-GPL"
     }
   ],
   "main": "lib/js-Round1",
@@ -34,5 +34,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.5"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "hapi": "^8.3.1"
+  }
 }
