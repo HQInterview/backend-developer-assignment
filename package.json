@@ -36,6 +36,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "bootstrap": "^3.3.2",
     "hapi": "^8.3.1"
   }
 }
