@@ -22,6 +22,13 @@ module.exports = function(grunt) {
         ]
       }
     },
+    bootlint: {
+      options: {
+        stoponerror: false,
+        relaxerror: []
+      },
+      files: ['public/*.html']
+    },
     nodeunit: {
       files: ['test/**/*_test.js'],
     },
@@ -32,6 +39,9 @@ module.exports = function(grunt) {
       gruntfile: {
         src: 'Gruntfile.js'
       },
+      root: {
+        src: ['*.js']
+      },
       lib: {
         src: ['lib/**/*.js']
       },
@@ -40,9 +50,17 @@ module.exports = function(grunt) {
       },
     },
     watch: {
+      bootlint: {
+        files: '<%= bootlint.files %>',
+        tasks: ['bootlint']
+      },
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
+      },
+      root: {
+        files: '<%= jshint.root.src %>',
+        tasks: ['jshint:root', 'nodeunit']
       },
       lib: {
         files: '<%= jshint.lib.src %>',
@@ -56,12 +74,12 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-bootlint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'nodeunit']);
-
+  grunt.registerTask('default', ['jshint', 'nodeunit', 'bootlint', 'copy']);
 };
