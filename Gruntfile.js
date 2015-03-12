@@ -4,6 +4,24 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    copy: {
+      bootstrap: {
+        files: [
+          {
+            expand: true,
+            cwd: 'node_modules/bootstrap/dist/',
+            src: ['**'],
+            dest: 'public/bootstrap/dist/'
+          },
+          {
+            expand: true,
+            cwd: 'node_modules/bootstrap/docs/examples/grid',
+            src: ['grid.css'],
+            dest: 'public/'
+          }
+        ]
+      }
+    },
     nodeunit: {
       files: ['test/**/*_test.js'],
     },
@@ -41,6 +59,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit']);
