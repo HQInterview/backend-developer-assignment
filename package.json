@@ -21,7 +21,7 @@
       "url": "https://github.com/bowerman0/Nodejs-Round1/blob/master/LICENSE-GPL"
     }
   ],
-  "main": "main.js",
+  "server": "server.js",
   "engines": {
     "node": ">= 0.8.0"
   },

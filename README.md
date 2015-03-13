@@ -7,7 +7,7 @@ Install the module with: `npm install js-Round1`
 
 ```javascript
 var js_Round1 = require('js-Round1');
-js_Round1.awesome(); // "awesome"
+_(Coming soon)_
 ```
 
 ## Documentation
