@@ -5,12 +5,14 @@ This document contains description and requirements for Round #1 of interview fo
 
 ## Goal
 
-1. Verify applicant's ability to work with 3rd party libraries. Verify that applicant is able to write clean and testable code.
-2. Check how clean code the applicant is able to create.
+1. Verify applicant's ability to work with 3rd party libraries.
+2. Verify that applicant is able to write clean and testable code.
+3. Check for best practices inside chosen backend framework.
+
 
 ## Requirements
 
-1) Create a payment gateway library, that could handle payments with:
+1) Create a payment gateway library, that can handle payments with:
 
 * [Paypal REST API](https://github.com/paypal/rest-api-sdk-nodejs)
 * [Braintree payments](https://www.braintreepayments.com/docs/node/)
@@ -52,6 +54,7 @@ Use appropriate form validations.
 * Use only Paypal and Braintree Node.js libraries, not any other 3rd party libraries.
 * Cover code with unit tests.
 * The code needs to work after we pull it and try it (no bugs) and should process the payments.
+* No Angular.js (jquery is fine)
 
 ## Quality requirements
 
@@ -65,4 +68,3 @@ Similarly as during any other code review in our team, we'll be checking the fol
 ## Bonus question
 
 * How would you handle security for saving credit cards?
-
