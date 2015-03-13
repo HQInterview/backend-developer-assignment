@@ -1,4 +1,4 @@
-# js-Round1 [![Build Status](https://secure.travis-ci.org/HQInterview/Nodejs-Round1.png?branch=master)](http://travis-ci.org/HQInterview/Nodejs-Round1)
+# js-Round1 [![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Round1.png?branch=master)](http://travis-ci.org/HQInterview/Nodejs-Round1)
 
 Paypal/Braintree payment processing
 
