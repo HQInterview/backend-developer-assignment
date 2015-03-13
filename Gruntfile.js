@@ -4,18 +4,18 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    copy: {
-      bootstrap: {
-        files: [
-          {
-            expand: true,
-            cwd: 'node_modules/bootstrap/dist/',
-            src: ['**'],
-            dest: 'public/bootstrap/dist/'
-          }
-        ]
-      }
-    },
+//    copy: {
+//      bootstrap: {
+//        files: [
+//          {
+//            expand: true,
+//            cwd: 'node_modules/bootstrap/dist/',
+//            src: ['**'],
+//            dest: 'public/bootstrap/dist/'
+//          }
+//        ]
+//      }
+//    },
     bootlint: {
       options: {
         stoponerror: false,
