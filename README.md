@@ -3,18 +3,23 @@
 Paypal/Braintree payment processing
 
 ## Getting Started
+### Run the full server:
 Install the module with: `npm install js-Round1`
+Then run: `node server.js`
 
+### Use the library in your own server
 ```javascript
 var js_Round1 = require('js-Round1');
-js_Round1.create_listender(); // "awesome"
+js_Round1.create_listender('.'); // "awesome"
 ```
+
+Check out the [[latest deployment](http://nodejs-round1.azurewebsites.net/)
 
 ## Documentation
 _(Coming soon)_
 
 ## Examples
-http://nodejs-round1.azurewebsites.net/
+_(Coming soon)_
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
