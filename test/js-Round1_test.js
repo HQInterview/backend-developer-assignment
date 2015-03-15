@@ -53,7 +53,7 @@ exports['retreive_token'] = {
     test.done();
   },
 };
-exports['paypal'] = {
+exports['paypal_invoke'] = {
   setUp: function(done) {
     // setup here
     done();
@@ -61,10 +61,14 @@ exports['paypal'] = {
   'no args': function(test) {
     test.expect(1);
     // tests here
-    test.throws(
-        function() {js_Round1.paypal();},
+    test.doesNotThrow(
+        function() {
+          js_Round1.paypal_invoke(
+            function(){},
+            function(){}
+            );},
         Error,
-        'Paypal should fail.');
+        'Paypal should not fail.');
     test.done();
   },
 };
