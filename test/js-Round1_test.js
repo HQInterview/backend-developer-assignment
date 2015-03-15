@@ -73,6 +73,24 @@ exports['paypal_invoke'] = {
   },
 };
 
+exports['getPaypalCreditCard'] = {
+  setUp: function(done) {
+    // setup here
+    done();
+  },
+  'no args': function(test) {
+    test.expect(1);
+    // tests here
+    var fakeCcId = 1;
+    // TODO: This test needs to be updated when the paypal api is active
+    test.equal(
+        js_Round1.getPaypalCreditCard(fakeCcId),
+        fakeCcId,
+        'Should return the same CC ID.'
+        );
+    test.done();
+  },
+};
 exports['create_listener'] = {
   setUp: function(done) {
     // setup here
