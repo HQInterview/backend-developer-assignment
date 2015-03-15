@@ -10,7 +10,7 @@
 
 var js_Round1 = require('./lib/js-Round1.js');
 
-var server = js_Round1.create_listener();
+var server = js_Round1.create_listener('.');
 
 server.start(function() {
   console.log('Server running at:', server.info.uri);

@@ -100,7 +100,7 @@ exports['create_listener'] = {
     test.expect(1);
     // tests here
     //
-    test.doesNotThrow(function() {js_Round1.create_listener();},
+    test.doesNotThrow(function() {js_Round1.create_listener('..');},
         Error,
         'Starting the Server should not throw.');
     test.done();
