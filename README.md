@@ -1,6 +1,6 @@
 # js-Round1 [![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Round1.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Round1)
 
-Paypal/Braintree payment processing
+Paypal/Braintree payment processing. Check out the [latest deployment](http://nodejs-round1.azurewebsites.net/)
 
 ## Getting Started
 ### Run the full server:
@@ -12,8 +12,6 @@ Paypal/Braintree payment processing
 var js_Round1 = require('js-Round1');
 js_Round1.create_listender('.'); // "awesome"
 ```
-
-Check out the [latest deployment](http://nodejs-round1.azurewebsites.net/)
 
 ## Documentation
 _(Coming soon)_
