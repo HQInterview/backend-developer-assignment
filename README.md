@@ -4,8 +4,8 @@ Paypal/Braintree payment processing
 
 ## Getting Started
 ### Run the full server:
-Install the module with: `npm install js-Round1`
-Then run: `node server.js`
+1. Install the module with: `npm install js-Round1`
+1. Then run: `node server.js`
 
 ### Use the library in your own server
 ```javascript
@@ -13,7 +13,7 @@ var js_Round1 = require('js-Round1');
 js_Round1.create_listender('.'); // "awesome"
 ```
 
-Check out the [[latest deployment](http://nodejs-round1.azurewebsites.net/)
+Check out the [latest deployment](http://nodejs-round1.azurewebsites.net/)
 
 ## Documentation
 _(Coming soon)_
