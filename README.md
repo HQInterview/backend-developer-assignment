@@ -1,5 +1,6 @@
-# js-Round1 [![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Round1.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Round1)
-# [![dependencies](https://david-dm.org/bowerman0/Nodejs-Round1.svg?branch=master)](https://david-dm.org/bowerman0/Nodejs-Round1)
+# js-Round1
+[![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Round1.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Round1)
+[![dependencies](https://david-dm.org/bowerman0/Nodejs-Round1.svg?branch=master)](https://david-dm.org/bowerman0/Nodejs-Round1)
 Paypal/Braintree payment processing. Check out the [latest deployment](http://nodejs-round1.azurewebsites.net/)
 
 ## Getting Started
