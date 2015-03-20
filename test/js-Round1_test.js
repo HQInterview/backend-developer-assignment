@@ -377,8 +377,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'Visa payment succeeded with paypal.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'visa pay eur': function(test) {
     test.expect(1);
@@ -389,8 +389,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'Visa payment succeeded with paypal.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'visa pay aud': function(test) {
     test.expect(1);
@@ -401,8 +401,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'Visa payment succeeded with paypal.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'visa pay thb': function(test) {
     test.expect(1);
@@ -413,8 +413,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'Visa payment succeeded with braintree.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'visa pay hkd': function(test) {
     test.expect(1);
@@ -425,8 +425,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'Visa payment succeeded with braintree.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'visa pay sgd': function(test) {
     test.expect(1);
@@ -437,8 +437,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'Visa payment succeeded with braintree.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'amex pay': function(test) {
     test.expect(1);
@@ -449,8 +449,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'American Express payment succeeded with paypal.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
   'amex pay thb': function(test) {
     test.expect(1);
@@ -461,8 +461,8 @@ exports['processPaymentRequest'] = {
           test.equal(answer,
             'American Express must be used with US Dollars only.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
 };
 
@@ -493,8 +493,8 @@ exports['createBraintreePayment'] = {
           test.equal(answer,
             'Visa payment succeeded with braintree.',
             'createBraintreePayment should succeed.');
+          test.done();
         });
-    test.done();
   },
 };
 
@@ -525,8 +525,8 @@ exports['createPaypalPayment'] = {
           test.equal(answer,
             'Visa payment succeeded with paypal.',
             'createPaypalPayment should succeed.');
+          test.done();
         });
-    test.done();
   },
 };
 
