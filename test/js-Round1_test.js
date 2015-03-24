@@ -91,7 +91,7 @@ var create_payment_json_amex_thb = {
   }]
 };
 
-var create_payment_json_amex = {
+var create_payment_json_amex_usd = {
   "intent": "sale",
   "payer": {
     "payment_method": "credit_card",
@@ -362,105 +362,118 @@ exports['processPaymentRequest'] = {
         function() {
           js_Round1.processPaymentRequest(
             create_payment_json_visa_usd,
-            function(){}
+            function(error){
+              test.ifError(error);
+            }
             );},
         Error,
         'Create payment should not fail.');
     test.done();
   },
   'visa pay usd': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_visa_usd,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with paypal.',
-            'createPaypalPayment should succeed.');
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with paypal.',
+            'createPaypalPayment usd should succeed.');
           test.done();
         });
   },
   'visa pay eur': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_visa_eur,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with paypal.',
-            'createPaypalPayment should succeed.');
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with paypal.',
+            'createPaypalPayment eur should succeed.');
           test.done();
         });
   },
   'visa pay aud': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_visa_aud,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with paypal.',
-            'createPaypalPayment should succeed.');
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with paypal.',
+            'createPaypalPayment aud should succeed.');
           test.done();
         });
   },
   'visa pay thb': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_visa_thb,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with braintree.',
-            'createPaypalPayment should succeed.');
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with braintree.',
+            'createPaypalPayment thb should succeed.');
           test.done();
         });
   },
   'visa pay hkd': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_visa_hkd,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with braintree.',
-            'createPaypalPayment should succeed.');
+        function(error,message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with braintree.',
+            'createPaypalPayment hkd should succeed.');
           test.done();
         });
   },
   'visa pay sgd': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_visa_sgd,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with braintree.',
-            'createPaypalPayment should succeed.');
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with braintree.',
+            'createPaypalPayment sgd should succeed.');
           test.done();
         });
   },
-  'amex pay': function(test) {
-    test.expect(1);
+  'amex pay usd': function(test) {
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
-        create_payment_json_amex,
-        function(answer){
-          test.equal(answer,
-            'American Express payment succeeded with paypal.',
-            'createPaypalPayment should succeed.');
+        create_payment_json_amex_usd,
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'amex payment succeeded with paypal.',
+            'createPaypalPayment amex usd should succeed.');
           test.done();
         });
   },
   'amex pay thb': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.processPaymentRequest(
         create_payment_json_amex_thb,
-        function(answer){
-          test.equal(answer,
+        function(error,message){
+          test.notEqual(error,
+            null,
+            //new Error('American Express must be used with US Dollars only.'),
+            'createPaypalPayment amex thb should fail.');
+          test.equal(message,
             'American Express must be used with US Dollars only.',
-            'createPaypalPayment should succeed.');
+            'createPaypalPayment amex thb should fail.');
           test.done();
         });
   },
@@ -476,7 +489,7 @@ exports['createBraintreePayment'] = {
     // tests here
     test.doesNotThrow(
         function() {
-          js_Round1.createBraintreePayment(
+          js_Round1.braintreePayment.createBraintreePayment(
             create_payment_json_visa_usd,
             function(){}
             );},
@@ -485,13 +498,14 @@ exports['createBraintreePayment'] = {
     test.done();
   },
   'valid args': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
-    js_Round1.createBraintreePayment(
+    js_Round1.braintreePayment.createBraintreePayment(
         create_payment_json_visa_usd,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with braintree.',
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with braintree.',
             'createBraintreePayment should succeed.');
           test.done();
         });
@@ -517,14 +531,15 @@ exports['createPaypalPayment'] = {
     test.done();
   },
   'valid args': function(test) {
-    test.expect(1);
+    test.expect(2);
     // tests here
     js_Round1.createPaypalPayment(
         create_payment_json_visa_usd,
-        function(answer){
-          test.equal(answer,
-            'Visa payment succeeded with paypal.',
-            'createPaypalPayment should succeed.');
+        function(error, message){
+          test.ifError(error);
+          test.equal(message,
+            'visa payment succeeded with paypal.',
+            'createPaypalPayment visa usd should succeed.');
           test.done();
         });
   },
