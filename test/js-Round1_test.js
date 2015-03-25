@@ -2,6 +2,13 @@
 
 var js_Round1 = require('../lib/js-Round1.js');
 
+// TODO: remove this include move braintree to another file.
+var BraintreePayment = require('../lib/BraintreePayment.js');
+// /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\
+//  |  |  |  |  |  |  |  |  |  |  |  |
+//  |  |  |  |  |  |  |  |  |  |  |  |
+//  |  |  |  |  |  |  |  |  |  |  |  |
+
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -360,7 +367,7 @@ exports['processPaymentRequest'] = {
     // tests here
     test.doesNotThrow(
         function() {
-          js_Round1.processPaymentRequest(
+          js_Round1.paymentProcessor.processPaymentRequest(
             create_payment_json_visa_usd,
             function(error){
               test.ifError(error);
@@ -373,7 +380,7 @@ exports['processPaymentRequest'] = {
   'visa pay usd': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_visa_usd,
         function(error, message){
           test.ifError(error);
@@ -386,7 +393,7 @@ exports['processPaymentRequest'] = {
   'visa pay eur': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_visa_eur,
         function(error, message){
           test.ifError(error);
@@ -399,7 +406,7 @@ exports['processPaymentRequest'] = {
   'visa pay aud': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_visa_aud,
         function(error, message){
           test.ifError(error);
@@ -412,7 +419,7 @@ exports['processPaymentRequest'] = {
   'visa pay thb': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_visa_thb,
         function(error, message){
           test.ifError(error);
@@ -425,7 +432,7 @@ exports['processPaymentRequest'] = {
   'visa pay hkd': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_visa_hkd,
         function(error,message){
           test.ifError(error);
@@ -438,7 +445,7 @@ exports['processPaymentRequest'] = {
   'visa pay sgd': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_visa_sgd,
         function(error, message){
           test.ifError(error);
@@ -451,7 +458,7 @@ exports['processPaymentRequest'] = {
   'amex pay usd': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_amex_usd,
         function(error, message){
           test.ifError(error);
@@ -464,7 +471,7 @@ exports['processPaymentRequest'] = {
   'amex pay thb': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.processPaymentRequest(
+    js_Round1.paymentProcessor.processPaymentRequest(
         create_payment_json_amex_thb,
         function(error,message){
           test.notEqual(error,
@@ -489,7 +496,7 @@ exports['createBraintreePayment'] = {
     // tests here
     test.doesNotThrow(
         function() {
-          js_Round1.braintreePayment.createBraintreePayment(
+          BraintreePayment.PaymentProcessor.createBraintreePayment(
             create_payment_json_visa_usd,
             function(){}
             );},
@@ -500,7 +507,7 @@ exports['createBraintreePayment'] = {
   'valid args': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.braintreePayment.createBraintreePayment(
+    BraintreePayment.PaymentProcessor.createBraintreePayment(
         create_payment_json_visa_usd,
         function(error, message){
           test.ifError(error);
@@ -522,7 +529,7 @@ exports['createPaypalPayment'] = {
     // tests here
     test.doesNotThrow(
         function() {
-          js_Round1.createPaypalPayment(
+          js_Round1.paypalPayment.createPaypalPayment(
             create_payment_json_visa_usd,
             function(){}
             );},
@@ -533,7 +540,7 @@ exports['createPaypalPayment'] = {
   'valid args': function(test) {
     test.expect(2);
     // tests here
-    js_Round1.createPaypalPayment(
+    js_Round1.paypalPayment.createPaypalPayment(
         create_payment_json_visa_usd,
         function(error, message){
           test.ifError(error);
@@ -554,7 +561,7 @@ exports['create_listener'] = {
     test.expect(1);
     // tests here
     //
-    test.doesNotThrow(function() {js_Round1.create_listener('..');},
+    test.doesNotThrow(function() {js_Round1.paymentServer.create_listener('..');},
         Error,
         'Starting the Server should not throw.');
     test.done();
