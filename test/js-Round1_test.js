@@ -2,13 +2,6 @@
 
 var js_Round1 = require('../lib/js-Round1.js');
 
-// TODO: remove this include move braintree to another file.
-var BraintreePayment = require('../lib/BraintreePayment.js');
-// /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\
-//  |  |  |  |  |  |  |  |  |  |  |  |
-//  |  |  |  |  |  |  |  |  |  |  |  |
-//  |  |  |  |  |  |  |  |  |  |  |  |
-
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -481,74 +474,6 @@ exports['processPaymentRequest'] = {
           test.equal(message,
             'American Express must be used with US Dollars only.',
             'createPaypalPayment amex thb should fail.');
-          test.done();
-        });
-  },
-};
-
-exports['createBraintreePayment'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no throw': function(test) {
-    test.expect(1);
-    // tests here
-    test.doesNotThrow(
-        function() {
-          var braintreePay = new BraintreePayment();
-          braintreePay.createBraintreePayment(
-            create_payment_json_visa_usd,
-            function(){}
-            );},
-        Error,
-        'Create payment should not fail.');
-    test.done();
-  },
-  'valid args': function(test) {
-    test.expect(2);
-    // tests here
-    var braintreePay = new BraintreePayment();
-    braintreePay.createBraintreePayment(
-        create_payment_json_visa_usd,
-        function(error, message){
-          test.ifError(error);
-          test.equal(message,
-            'visa payment succeeded with braintree.',
-            'createBraintreePayment should succeed.');
-          test.done();
-        });
-  },
-};
-
-exports['createPaypalPayment'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no throw': function(test) {
-    test.expect(1);
-    // tests here
-    test.doesNotThrow(
-        function() {
-          js_Round1.paypalPayment.createPaypalPayment(
-            create_payment_json_visa_usd,
-            function(){}
-            );},
-        Error,
-        'Create payment should not fail.');
-    test.done();
-  },
-  'valid args': function(test) {
-    test.expect(2);
-    // tests here
-    js_Round1.paypalPayment.createPaypalPayment(
-        create_payment_json_visa_usd,
-        function(error, message){
-          test.ifError(error);
-          test.equal(message,
-            'visa payment succeeded with paypal.',
-            'createPaypalPayment visa usd should succeed.');
           test.done();
         });
   },
