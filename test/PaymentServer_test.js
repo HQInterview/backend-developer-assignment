@@ -31,8 +31,8 @@ exports['create_listener'] = {
     test.expect(1);
     // tests here
     //
-    var payServer = new PaymentServer();
-    test.doesNotThrow(function() {payServer.create_listener('..');},
+    var payServer = new PaymentServer("..",3000);
+    test.doesNotThrow(function() {payServer.create_listener();},
         Error,
         'Starting the Server should not throw.');
     test.done();
