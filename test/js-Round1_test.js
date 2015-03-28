@@ -496,7 +496,8 @@ exports['createBraintreePayment'] = {
     // tests here
     test.doesNotThrow(
         function() {
-          BraintreePayment.PaymentProcessor.createBraintreePayment(
+          var braintreePay = new BraintreePayment();
+          braintreePay.createBraintreePayment(
             create_payment_json_visa_usd,
             function(){}
             );},
@@ -507,7 +508,8 @@ exports['createBraintreePayment'] = {
   'valid args': function(test) {
     test.expect(2);
     // tests here
-    BraintreePayment.PaymentProcessor.createBraintreePayment(
+    var braintreePay = new BraintreePayment();
+    braintreePay.createBraintreePayment(
         create_payment_json_visa_usd,
         function(error, message){
           test.ifError(error);
