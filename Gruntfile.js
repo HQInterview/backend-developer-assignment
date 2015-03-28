@@ -43,6 +43,21 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    coveralls: {
+      options: {
+        // LCOV coverage file relevant to every target
+        src: 'coverage-results/lcov.info',
+
+        // When true, grunt-coveralls will only print a warning rather than
+        // an error, to prevent CI builds from failing unnecessarily (e.g. if
+        // coveralls.io is down). Optional, defaults to false.
+        force: false
+      },
+      your_target: {
+        // Target-specific LCOV coverage file
+        src: 'coverage-results/extra-results-*.info'
+      },
+    },
     watch: {
       bootlint: {
         files: '<%= bootlint.files %>',
@@ -72,8 +87,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  //grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-coveralls');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'nodeunit', 'bootlint', 'copy']);
+  grunt.registerTask('default', ['jshint', 'nodeunit', 'bootlint']);
 };
