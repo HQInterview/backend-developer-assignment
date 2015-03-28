@@ -8,9 +8,10 @@
 
 'use strinct';
 
-var js_Round1 = require('./lib/js-Round1.js');
+var PaymentServer = require('./lib/PaymentServer.js');
 
-var server = js_Round1.create_listener('.');
+var payServer = new PaymentServer();
+var server = payServer.create_listener('.');
 
 server.start(function() {
   console.log('Server running at:', server.info.uri);

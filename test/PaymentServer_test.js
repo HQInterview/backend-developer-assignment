@@ -1,6 +1,6 @@
 'use strict';
 
-var js_Round1 = require('../lib/js-Round1.js');
+var PaymentServer = require('../lib/PaymentServer.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,38 +22,6 @@ var js_Round1 = require('../lib/js-Round1.js');
     test.ifError(value)
 */
 
-exports['braintree'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.throws(
-        function() {js_Round1.braintree();},
-        Error,
-        'Braintree should fail.');
-    test.done();
-  },
-};
-
-exports['retreive_token'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.throws(
-        function() {js_Round1.paypal();},
-        Error,
-        'Paypal should fail.');
-    test.done();
-  },
-};
-
 exports['create_listener'] = {
   setUp: function(done) {
     // setup here
@@ -63,7 +31,8 @@ exports['create_listener'] = {
     test.expect(1);
     // tests here
     //
-    test.doesNotThrow(function() {js_Round1.paymentServer.create_listener('..');},
+    var payServer = new PaymentServer();
+    test.doesNotThrow(function() {payServer.create_listener('..');},
         Error,
         'Starting the Server should not throw.');
     test.done();
