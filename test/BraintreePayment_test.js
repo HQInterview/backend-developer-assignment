@@ -325,20 +325,20 @@ exports['createBraintreePayment'] = {
     // setup here
     done();
   },
-  'no throw': function(test) {
-    test.expect(1);
-    // tests here
-    test.doesNotThrow(
-        function() {
-          var payment = new BraintreePayment();
-          payment.createBraintreePayment(
-            create_payment_json_visa_usd,
-            function(){}
-            );},
-        Error,
-        'Create payment should not fail.');
-    test.done();
-  },
+//  'no throw': function(test) {
+//    test.expect(1);
+//    // tests here
+//    test.doesNotThrow(
+//        function() {
+//          var payment = new BraintreePayment();
+//          payment.createBraintreePayment(
+//            create_payment_json_visa_usd,
+//            function(){}
+//            );},
+//        Error,
+//        'Create payment should not fail.');
+//    test.done();
+//  },
   'valid args': function(test) {
     test.expect(2);
     // tests here
