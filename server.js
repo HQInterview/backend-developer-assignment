@@ -10,8 +10,8 @@
 
 var PaymentServer = require('./lib/PaymentServer.js');
 
-var payServer = new PaymentServer();
-var server = payServer.create_listener('.');
+var payServer = new PaymentServer('.',3000);
+var server = payServer.create_listener();
 
 server.start(function() {
   console.log('Server running at:', server.info.uri);
