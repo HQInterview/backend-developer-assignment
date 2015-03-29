@@ -43,14 +43,28 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    jscoverage: {
+      lib: {
+        expand: true,
+        cwd: 'lib/',
+        src: ['**/*.js'],
+        dest: 'lib-cov/',
+        ext: '.js',
+      },
+      root: {
+        expand: true,
+        cwd: './',
+        src: ['*.js'],
+        dest: 'root-cov/',
+        ext: '.js',
+      },
+      options: {
+        // custom options 
+      }
+    },
     coveralls: {
       options: {
-        // LCOV coverage file relevant to every target
         src: 'coverage-results/lcov.info',
-
-        // When true, grunt-coveralls will only print a warning rather than
-        // an error, to prevent CI builds from failing unnecessarily (e.g. if
-        // coveralls.io is down). Optional, defaults to false.
         force: false
       },
       your_target: {
@@ -69,11 +83,13 @@ module.exports = function(grunt) {
       },
       root: {
         files: '<%= jshint.root.src %>',
-        tasks: ['jshint:root', 'nodeunit']
+        //tasks: ['jshint:root','jscoverage:root','nodeunit']
+        tasks: ['jshint:root','nodeunit']
       },
       lib: {
         files: '<%= jshint.lib.src %>',
-        tasks: ['jshint:lib', 'nodeunit']
+        //tasks: ['jshint:lib','jscoverage:lib','nodeunit']
+        tasks: ['jshint:lib','nodeunit']
       },
       test: {
         files: '<%= jshint.test.src %>',
@@ -88,8 +104,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   //grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks("grunt-jscoverage");
   grunt.loadNpmTasks('grunt-coveralls');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit', 'bootlint']);
+  //grunt.registerTask('default', ['jshint', 'nodeunit', 'bootlint','jscoverage']);
 };
