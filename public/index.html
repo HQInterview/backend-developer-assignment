@@ -43,12 +43,6 @@
     <fieldset>
       <legend>Payment information</legend>
       <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
-        </div>
-      </div>
-      <div class="form-group">
         <label class="col-sm-3 control-label" for="card-number">Card Number</label>
         <div class="col-sm-9">
           <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
@@ -122,42 +116,42 @@ $(function(){
 });
 $( "#pay" ).click(function() {
 
-var create_payment_json_visa_usd = {
-  "intent": "sale",
-  "payer": {
-    "payment_method": "credit_card",
-    "funding_instruments": [{
-      "credit_card": {
-        "type": "visa",
-        "number": "4417119669820331",
-        "expire_month": "11",
-        "expire_year": "2018",
-        "cvv2": "874",
-        "first_name": "Joe",
-        "last_name": "Shopper",
-        "billing_address": {
-          "line1": "52 N Main ST",
-          "city": "Johnstown",
-          "state": "OH",
-          "postal_code": "43210",
-          "country_code": "US"
-        }
-      }
-    }]
-  },
-  "transactions": [{
-    "amount": {
-      "total": "7",
-      "currency": "USD",
-      "details": {
-        "subtotal": "5",
-        "tax": "1",
-        "shipping": "1"
-      }
-    },
-    "description": "This is the payment transaction description."
-  }]
-};
+    var create_payment_json_visa_usd = {
+      "intent": "sale",
+      "payer": {
+        "payment_method": "credit_card",
+        "funding_instruments": [{
+          "credit_card": {
+            "type": "visa",
+            "number": $("input[name$='card-number']").val(),
+            "expire_month": $("select[name$='expiry-month']").val(),
+            "expire_year": $("select[name$='expiry-year']").val(),
+            "cvv2": $("input[name$='cvv']").val(),
+            "first_name": $("#first-name").val(),
+            "last_name": $("#last-name").val(),
+            "billing_address": {
+              "line1": "52 N Main ST",
+              "city": "Johnstown",
+              "state": "OH",
+              "postal_code": "43210",
+              "country_code": "US"
+            }
+          }
+        }]
+      },
+      "transactions": [{
+        "amount": {
+          "total": $("input[name$='item-price']").val(),
+          "currency": "USD",
+          "details": {
+            "subtotal": "5",
+            "tax": "1",
+            "shipping": "1"
+          }
+        },
+        "description": "This is the payment transaction description."
+      }]
+    };
 
     $.post( "ccpay", create_payment_json_visa_usd).done( function( data ) {
           alert( "data: " + data );
