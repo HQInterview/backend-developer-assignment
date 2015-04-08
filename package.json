@@ -44,6 +44,7 @@
     "bootstrap": "^3.3.2",
     "braintree": "^1.23.0",
     "hapi": "^8.3.1",
+    "joi": "^6.1.0",
     "paypal-rest-sdk": "^1.5.1"
   }
 }
