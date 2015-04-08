@@ -122,7 +122,6 @@ $(function(){
   $('.amount').money_field(options);
 });
 $( "#pay" ).click(function() {
-    alert( "Handler for .click() called." );
 
 var create_payment_json_visa_usd = {
   "intent": "sale",
@@ -162,9 +161,10 @@ var create_payment_json_visa_usd = {
 };
 
     $.post( "ccpay", create_payment_json_visa_usd).done( function( data ) {
-        $( ".result" ).html( data );
+          alert( "data: " + data );
+        }).fail(function(xhr, textStatus, errorThrown) {
+          alert(xhr.responseText);
         });
-    alert( "Handler for .click() called: "+data );
     });
 </script>
 </body>
