@@ -1,6 +1,8 @@
 'use strict';
 
 var PaymentProcessor = require('../lib/PaymentProcessor.js');
+var sinon = require('sinon');
+var PaypalPayment = require('../lib/PaypalPayment.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -320,30 +322,25 @@ var create_payment_json_visa_usd = {
 
 exports['processPaymentRequest'] = {
   setUp: function(done) {
+    this.pa = new PaypalPayment();
+    this.paymentInner = sinon.stub(this.pa,"createPaymentInner");
+    this.paymentInner.withArgs('visa').callsArgWith(1,null, 'visa payment succeeded with paypal.');
+    this.paymentInner.withArgs('amex').callsArgWith(1,null, 'amex payment succeeded with paypal.');
+
+    this.processor = new PaymentProcessor();
+    this.processor.payment = this.pa;
     // setup here
     done();
   },
-  'no throw': function(test) {
-    test.expect(1);
-    // tests here
-    test.doesNotThrow(
-        function() {
-          var processor = new PaymentProcessor();
-          processor.processPaymentRequest(
-            create_payment_json_visa_usd,
-            function(error){
-              test.ifError(error);
-            }
-            );},
-        Error,
-        'Create payment should not fail.');
-    test.done();
+  tearDown: function(done) {
+    this.paymentInner.restore();
+
+    done();
   },
   'visa pay usd': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_visa_usd,
         function(error, message){
           test.ifError(error);
@@ -356,8 +353,7 @@ exports['processPaymentRequest'] = {
   'visa pay eur': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_visa_eur,
         function(error, message){
           test.ifError(error);
@@ -370,8 +366,7 @@ exports['processPaymentRequest'] = {
   'visa pay aud': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_visa_aud,
         function(error, message){
           test.ifError(error);
@@ -384,8 +379,7 @@ exports['processPaymentRequest'] = {
   'visa pay thb': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_visa_thb,
         function(error, message){
           test.ifError(error);
@@ -398,8 +392,7 @@ exports['processPaymentRequest'] = {
   'visa pay hkd': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_visa_hkd,
         function(error,message){
           test.ifError(error);
@@ -412,8 +405,7 @@ exports['processPaymentRequest'] = {
   'visa pay sgd': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_visa_sgd,
         function(error, message){
           test.ifError(error);
@@ -425,9 +417,9 @@ exports['processPaymentRequest'] = {
   },
   'amex pay usd': function(test) {
     test.expect(2);
+
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_amex_usd,
         function(error, message){
           test.ifError(error);
@@ -440,8 +432,7 @@ exports['processPaymentRequest'] = {
   'amex pay thb': function(test) {
     test.expect(2);
     // tests here
-    var processor = new PaymentProcessor();
-    processor.processPaymentRequest(
+    this.processor.processPaymentRequest(
         create_payment_json_amex_thb,
         function(error,message){
           test.notEqual(error,
