@@ -64,7 +64,15 @@ exports['createPaypalPayment'] = {
   setUp: function(done) {
     this.pa = new PaypalPayment();
     this.paymentInner = sinon.stub(this.pa,"createPaymentInner");
-    this.paymentInner.withArgs('visa').callsArgWith(1,null, 'visa payment succeeded with paypal.');
+
+     var visaMatch = sinon.match(function(value){
+       //console.log(value);
+       return 'visa' === value.payer.funding_instruments[0].credit_card.type;
+     });
+
+    this.paymentInner.withArgs(visaMatch).callsArgWith(1,null, 'visa payment succeeded with paypal.');
+    this.paymentInner.callsArgWith(1,null, 'unexpected payment with paypal.');
+
     // setup here
     done();
   },

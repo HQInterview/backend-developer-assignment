@@ -324,8 +324,32 @@ exports['processPaymentRequest'] = {
   setUp: function(done) {
     this.pa = new PaypalPayment();
     this.paymentInner = sinon.stub(this.pa,"createPaymentInner");
-    this.paymentInner.withArgs('visa').callsArgWith(1,null, 'visa payment succeeded with paypal.');
-    this.paymentInner.withArgs('amex').callsArgWith(1,null, 'amex payment succeeded with paypal.');
+
+    var visaMatch = sinon.match(function(value){
+      if( 'undefined' === typeof value ||
+        'undefined' === typeof value.payer ||
+        'undefined' === typeof value.payer.funding_instruments ||
+        'undefined' === typeof value.payer.funding_instruments[0] ||
+        'undefined' === typeof value.payer.funding_instruments[0].credit_card ||
+        'undefined' === typeof value.payer.funding_instruments[0].credit_card.type) {
+          //console.trace();
+          //console.log(value);
+          return false;
+      }
+
+      return 'visa' === value.payer.funding_instruments[0].credit_card.type;
+    });
+
+    this.paymentInner.withArgs(visaMatch).callsArgWith(1,null, 'visa payment succeeded with paypal.');
+
+    var amexMatch = sinon.match(function(value){
+      //console.log(value);
+      //return false;
+      return 'amex' === value.payer.funding_instruments[0].credit_card.type;
+    });
+
+    this.paymentInner.withArgs(amexMatch).callsArgWith(1,null, 'amex payment succeeded with paypal.');
+    this.paymentInner.callsArgWith(1,null, 'unexpected payment with paypal.');
 
     this.processor = new PaymentProcessor();
     this.processor.payment = this.pa;
