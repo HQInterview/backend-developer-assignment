@@ -144,9 +144,9 @@ $( "#pay" ).click(function() {
           "total": $("input[name$='item-price']").val(),
           "currency": "USD",
           "details": {
-            "subtotal": "5",
-            "tax": "1",
-            "shipping": "1"
+            "subtotal": $("input[name$='item-price']").val(),
+            "tax": "0",
+            "shipping": "0"
           }
         },
         "description": "This is the payment transaction description."
