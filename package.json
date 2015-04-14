@@ -44,8 +44,11 @@
   "dependencies": {
     "bootstrap": "^3.3.2",
     "braintree": "^1.23.0",
+    "good": "^6.1.0",
+    "good-winston": "^1.0.0",
     "hapi": "^8.3.1",
     "joi": "^6.1.0",
-    "paypal-rest-sdk": "^1.5.1"
+    "paypal-rest-sdk": "^1.5.1",
+    "winston": "^1.0.0"
   }
 }

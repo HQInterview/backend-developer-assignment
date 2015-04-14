@@ -116,51 +116,49 @@ $(function(){
 });
 $( "#pay" ).click(function() {
 
-    var create_payment_json_visa_usd = {
+  var create_payment_json = {
       "intent": "sale",
       "payer": {
-        "payment_method": "credit_card",
-        "funding_instruments": [{
-          "credit_card": {
-            "type": "visa",
-            "number": $("input[name$='card-number']").val(),
-            "expire_month": $("select[name$='expiry-month']").val(),
-            "expire_year": $("select[name$='expiry-year']").val(),
-            "cvv2": $("input[name$='cvv']").val(),
-            "first_name": $("#first-name").val(),
-            "last_name": $("#last-name").val(),
-/*            "billing_address": {
-              "line1": "52 N Main ST",
-              "city": "Johnstown",
-              "state": "OH",
-              "postal_code": "43210",
-              "country_code": "US"
-            }
-*/
-          }
-        }]
+          "payment_method": "credit_card",
+          "funding_instruments": [{
+              "credit_card": {
+                  "type": "visa",
+                  "number": "4417119669820331",
+                  "expire_month": $("select[name$='expiry-month']").val(),
+                  "expire_year": $("select[name$='expiry-year']").val(),
+                  "cvv2": $("input[name$='cvv']").val(),
+                  "first_name": "Joe",
+                  "last_name": "Shopper",
+                  "billing_address": {
+                      "line1": "52 N Main ST",
+                      "city": "Johnstown",
+                      "state": "OH",
+                      "postal_code": "43210",
+                      "country_code": "US"
+                  }
+              }
+          }]
       },
       "transactions": [{
-        "amount": {
-          "total": $("input[name$='item-price']").val(),
-          "currency": "USD",
-/*          "details": {
-            "subtotal": $("input[name$='item-price']").val(),
-            "tax": "0",
-            "shipping": "0"
-          }
-*/
-        },
-        "description": "This is the payment transaction description."
+          "amount": {
+              "total": $("input[name$='item-price']").val(),
+              "currency": "USD",
+              "details": {
+                  "subtotal": ($("input[name$='item-price']").val()-2),
+                  "tax": "1",
+                  "shipping": "1"
+              }
+          },
+          "description": "This is the payment transaction description."
       }]
-    };
+  };
 
-    $.post( "ccpay", create_payment_json_visa_usd).done( function( data ) {
-          alert( "data: " + data );
-        }).fail(function(xhr, textStatus, errorThrown) {
-          alert(xhr.responseText);
+  $.post( "ccpay", create_payment_json).done( function( data ) {
+      alert( "data: " + data );
+      }).fail(function(xhr, textStatus, errorThrown) {
+        alert(xhr.responseText);
         });
-    });
+});
 </script>
 </body>
 </html>
