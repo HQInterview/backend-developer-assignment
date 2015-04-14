@@ -129,13 +129,14 @@ $( "#pay" ).click(function() {
             "cvv2": $("input[name$='cvv']").val(),
             "first_name": $("#first-name").val(),
             "last_name": $("#last-name").val(),
-            "billing_address": {
+/*            "billing_address": {
               "line1": "52 N Main ST",
               "city": "Johnstown",
               "state": "OH",
               "postal_code": "43210",
               "country_code": "US"
             }
+*/
           }
         }]
       },
@@ -143,11 +144,12 @@ $( "#pay" ).click(function() {
         "amount": {
           "total": $("input[name$='item-price']").val(),
           "currency": "USD",
-          "details": {
+/*          "details": {
             "subtotal": $("input[name$='item-price']").val(),
             "tax": "0",
             "shipping": "0"
           }
+*/
         },
         "description": "This is the payment transaction description."
       }]
