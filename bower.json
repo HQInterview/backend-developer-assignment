@@ -16,7 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-formhelpers": "~2.3.0",
     "bootstrap": "~3.3.4"
   },
   "resolutions": {
