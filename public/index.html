@@ -9,7 +9,7 @@
   <meta name="description" content="A payment form.">
   <meta name="author" content="Michael Bowerman">
   <!-- Bootstrap core CSS -->
-  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
@@ -105,7 +105,7 @@
 </div>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="money-field.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -123,12 +123,12 @@ $( "#pay" ).click(function() {
           "funding_instruments": [{
               "credit_card": {
                   "type": "visa",
-                  "number": "4417119669820331",
+                  "number": $("input[name$='card-number']").val(),
                   "expire_month": $("select[name$='expiry-month']").val(),
                   "expire_year": $("select[name$='expiry-year']").val(),
                   "cvv2": $("input[name$='cvv']").val(),
-                  "first_name": "Joe",
-                  "last_name": "Shopper",
+                  "first_name": $("#first-name").val(),
+                  "last_name": $("#last-name").val(),
                   "billing_address": {
                       "line1": "52 N Main ST",
                       "city": "Johnstown",

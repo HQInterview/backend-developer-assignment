@@ -1,0 +1,25 @@
+{
+  "name": "js-Round1",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bowerman0/Nodejs-Round1",
+  "authors": [
+    "Michael Bowerman <michael.bowerman@gmail.com>"
+  ],
+  "description": "Paypal/Braintree payment processing",
+  "main": "server.js",
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-formhelpers": "~2.3.0",
+    "bootstrap": "~3.3.4"
+  },
+  "resolutions": {
+    "bootstrap": "~3.3.4"
+  }
+}
