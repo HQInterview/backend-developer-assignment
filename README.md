@@ -1,17 +1,18 @@
-# js-Round1
-[![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Round1.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Round1)
-[![dependencies](https://david-dm.org/bowerman0/Nodejs-Round1.svg?branch=master)](https://david-dm.org/bowerman0/Nodejs-Round1)
+# js-Practice
+[![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Practice.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Practice)
+[![dependencies](https://david-dm.org/bowerman0/Nodejs-Practice.svg?branch=master)](https://david-dm.org/bowerman0/Nodejs-Practice)
 Paypal/Braintree payment processing. Check out the [latest deployment](http://nodejs-round1.azurewebsites.net/)
 
 ## Getting Started
 ### Run the full server:
-1. Install the module with: `npm install js-Round1`
+1. Install the module with: `npm install js-practice`
 1. Then run: `node server.js`
 
 ### Use the library in your own server
 ```javascript
-var js_Round1 = require('js-Round1');
-js_Round1.create_listender('.'); // "awesome"
+var PayServer = require('js-practice');
+var server = new PayServer('.',3000);
+js_practice.create_listender();
 ```
 
 ## Documentation
