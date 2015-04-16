@@ -31,7 +31,7 @@ var create_payment_json_amex_thb = {
     "funding_instruments": [{
       "credit_card": {
         "type": "amex",
-        "number": "4417119669820331",
+        "number": "378282246310005",
         "expire_month": "11",
         "expire_year": "2018",
         "cvv2": "874",
@@ -68,7 +68,7 @@ var create_payment_json_amex_usd = {
     "funding_instruments": [{
       "credit_card": {
         "type": "amex",
-        "number": "4417119669820331",
+        "number": "378282246310005",
         "expire_month": "11",
         "expire_year": "2018",
         "cvv2": "874",
