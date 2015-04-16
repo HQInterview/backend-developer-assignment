@@ -21,19 +21,19 @@
       <legend>Item information</legend>
       <div class="form-group">
         <div class="row">
-          <select class="form-control col-sm-2" name="currency" id="currency">
-            <option>Currency</option>
-            <option value="USD">US Dollar</option>
-            <option value="EUR">Euro</option>
-            <option value="THB">Thai Baht</option>
-            <option value="HKD">Hong Kong Dollar</option>
-            <option value="SGD">Singapore Dollar</option>
-            <option value="AUD">Australian Dollar</option>
-          </select>
-        </div>
-        <div class="row">
           <div class="col-xs-4">
-            <input type="number" class="amount" name="item-price" placeholder="Item Price (Be honest!)"/>
+            <select class="form-control" name="currency" id="currency">
+              <option>Currency</option>
+              <option value="USD">US Dollar ($)</option>
+              <option value="EUR">Euro (€)</option>
+              <option value="THB">Thai Baht (฿)</option>
+              <option value="HKD">Hong Kong Dollar (HK$)</option>
+              <option value="SGD">Singapore Dollar (S$)</option>
+              <option value="AUD">Australian Dollar (A$)</option>
+            </select>
+          </div>
+          <div class="col-xs-4">
+            <input type="number" class="form-control" name="item-price" placeholder="Item Price (Be honest!)"/>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ $( "#pay" ).click(function() {
       "transactions": [{
           "amount": {
               "total": $("input[name$='item-price']").val(),
-              "currency": "USD",
+              "currency": $("select[name$='currency']").val(),
               "details": {
                   "subtotal": ($("input[name$='item-price']").val()-2),
                   "tax": "1",
