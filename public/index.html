@@ -21,6 +21,17 @@
       <legend>Item information</legend>
       <div class="form-group">
         <div class="row">
+          <select class="form-control col-sm-2" name="currency" id="currency">
+            <option>Currency</option>
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="THB">Thai Baht</option>
+            <option value="HKD">Hong Kong Dollar</option>
+            <option value="SGD">Singapore Dollar</option>
+            <option value="AUD">Australian Dollar</option>
+          </select>
+        </div>
+        <div class="row">
           <div class="col-xs-4">
             <input type="number" class="amount" name="item-price" placeholder="Item Price (Be honest!)"/>
           </div>
@@ -104,14 +115,8 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="money-field.js"></script>
 <script type="text/javascript">
-$(function(){
-  var options = {
-    symbol: '$'
-  };
-  $('.amount').money_field(options);
-});
+
 $( "#pay" ).click(function() {
 
   var create_payment_json = {
