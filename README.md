@@ -1,7 +1,7 @@
 # js-Practice
 [![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Practice.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Practice)
 [![dependencies](https://david-dm.org/bowerman0/Nodejs-Practice.svg?branch=master)](https://david-dm.org/bowerman0/Nodejs-Practice)
-Paypal/Braintree payment processing. Check out the [latest deployment](http://nodejs-practice.azurewebsites.net/)
+Paypal/Braintree payment processing. Check out the [latest deployment](http://js-practice.azurewebsites.net/)
 
 ## Getting Started
 ### Run the full server:
