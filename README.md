@@ -1,7 +1,7 @@
 # js-Practice
 [![Build Status](https://secure.travis-ci.org/bowerman0/Nodejs-Practice.png?branch=master)](http://travis-ci.org/bowerman0/Nodejs-Practice)
 [![dependency Status](https://david-dm.org/bowerman0/Nodejs-Practice.svg?branch=master)](https://david-dm.org/bowerman0/Nodejs-Practice)
-[![devDependency Status](https://david-dm.org/bowerman0/dev-status.svg)](https://david-dm.org/bowerman0/Nodejs-Practice#info=devDependencies)
+[![devDependency Status](https://david-dm.org/bowerman0/Nodejs-Practice/dev-status.svg)](https://david-dm.org/bowerman0/Nodejs-Practice#info=devDependencies)
 Paypal/Braintree payment processing. Check out the [latest deployment](http://js-practice.azurewebsites.net/)
 
 ## Getting Started
