@@ -49,7 +49,7 @@ Use appropriate form validations.
   * if currency is USD, EUR, or AUD, then use Paypal. Otherwise use Braintree.
   * if currency is **not** USD and credit card **is** AMEX, return error message, that AMEX is possible to use only for USD
 * Use any Node.js framework you want or no framework at all, it's up to you.
-  * Usually we use [Hapi.js](http://hapijs.com/) - feel free to use this one, if you don't have any preferred one.
+  * Usually we use Express.js - feel free to use this one, if you don't have any preferred one.
 * Don't bother with any graphics, just simple HTML, simple form, no CSS needed. Or just use [Twitter Bootstrap](http://getbootstrap.com).
 * Use only Paypal and Braintree Node.js libraries, not any other 3rd party libraries.
 * Cover code with unit tests.
