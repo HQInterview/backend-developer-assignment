@@ -17,6 +17,24 @@ This document contains description and requirements for Round #1 of interview fo
 * [Paypal REST API](https://github.com/paypal/rest-api-sdk-nodejs)
 * [Braintree payments](https://www.braintreepayments.com/docs/node/)
 
+**NOTE on Braintree**:
+In official [spec] (https://developers.braintreepayments.com/reference/request/transaction/sale/node) stated that either **paymentMethodNonce** or **paymentMethodToken** could be used. But actually there is one more option to use **creditCard**. In sake of assignment's simplicity please go with **creditCard**.
+
+[Credit Card Payload] (https://developers.braintreepayments.com/reference/request/transaction/sale/node#credit_card)
+
+Example:
+```javascript
+{
+  "amount": "100",
+  "creditCard": {
+    "number": "4111111111111111",
+    "expirationMonth": "2",
+    "expirationYear": "2020",
+    "cvv": "111"
+  }
+}
+```
+
 Library should be designed to easily add another additional payment gateways.
 
 2) Create a simple form for making payment. Form should have this fields:
