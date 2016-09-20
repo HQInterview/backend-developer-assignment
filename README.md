@@ -1,7 +1,7 @@
-Node.js Round #1
+Backend developer assignment
 ==========
 
-This document contains description and requirements for Round #1 of interview for Node.js developer position.
+This document contains description and requirements for assignment for Backend developer position.
 
 ## Goal
 
