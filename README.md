@@ -37,7 +37,7 @@ Example:
 
 Library should be designed to easily add another additional payment gateways.
 
-2) Create a simple form for making payment. Form should have this fields:
+2) Create a simple form for making payment. Form should have these fields:
 
 * In order section:
   * Price (amount)
@@ -47,7 +47,7 @@ Library should be designed to easily add another additional payment gateways.
   * Credit card holder name
   * Credit card number
   * Credit card expiration
-  * Credit card CCV
+  * Credit card CVV
 * Submit button
 
 Show success or error message after payment. 
