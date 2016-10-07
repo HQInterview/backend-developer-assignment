@@ -42,8 +42,10 @@ Library should be designed to easily add another additional payment gateways.
 * In order section:
   * Price (amount)
   * Currency (USD, EUR, THB, HKD, SGD, AUD)
-  * Customer Full name
+  * Customer First Name
+  * Customer Last Name
 * In payment section:
+  * Credit card type
   * Credit card holder name
   * Credit card number
   * Credit card expiration
@@ -55,8 +57,9 @@ Show success or error message after payment.
 Use appropriate form validations.
 
 3) Save order data + response from payment gateway to database table.
+(Please more information about supported database engines here)
 
-4) Create a public repository on Github and push the solution there. Send us the link to the repository.
+4) Clone this repository on Github and push the solution there. Send us the link to the repository.
 
 ## Specification
 
