@@ -12,7 +12,9 @@ This document contains description and requirements for assignment for Backend d
 
 ## Requirements
 
-1) Create a payment gateway library, that can handle payments with:
+1) For implementation use PHP or NodeJS or GoLang
+
+2) Create a payment gateway library, that can handle payments with:
 
 * [Paypal REST API](https://github.com/paypal/rest-api-sdk-nodejs)
 * [Braintree payments](https://www.braintreepayments.com/docs/node/)
@@ -37,7 +39,7 @@ Example:
 
 Library should be designed to easily add another additional payment gateways.
 
-2) Create a simple form for making payment. Form should have this fields:
+3) Create a simple form for making payment. Form should have this fields:
 
 * In order section:
   * Price (amount)
@@ -54,9 +56,9 @@ Show success or error message after payment.
 
 Use appropriate form validations.
 
-3) Save order data + response from payment gateway to database table.
+4) Save order data + response from payment gateway to database table.
 
-4) Create a public repository on Github and push the solution there. Send us the link to the repository.
+5) Create a public repository on Github and push the solution there. Send us the link to the repository.
 
 ## Specification
 
